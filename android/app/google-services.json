@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "848438886124",
+    "project_id": "wildpoly-76a66",
+    "storage_bucket": "wildpoly-76a66.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848438886124:android:cf6b3fdbdecf762e812fc9",
+        "android_client_info": {
+          "package_name": "com.example.wildpoly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "848438886124-r0j0vhusga9qeef2qfrlbktj10rs1jj8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5cmdLvjEr4wP7C4PvhaIXKb_WUEqGALE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "848438886124-r0j0vhusga9qeef2qfrlbktj10rs1jj8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
