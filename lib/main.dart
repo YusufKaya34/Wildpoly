@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-   Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => UserModel(),
       child: MaterialApp(
@@ -40,9 +40,10 @@ class MyApp extends StatelessWidget {
         locale: context.locale,
         debugShowCheckedModeBanner: false,
         title: 'Wildpoly',
-        home: const StartPage(),
+        theme: ThemeData(),
+        home: DefaultTextStyle(
+            style: Constants.defaultTextStyle(), child: const StartPage()),
       ),
     );
   }
 }
-
