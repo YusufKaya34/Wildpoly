@@ -54,7 +54,6 @@ class _StartPageState extends State<StartPage> {
                 TextFormField(
                   decoration: InputDecoration(
                       isDense: true,
-                      
                       contentPadding: EdgeInsets.all(14),
                       hintText: 'Enter a Phone Number',
                       focusedBorder: OutlineInputBorder(
@@ -109,7 +108,7 @@ class _StartPageState extends State<StartPage> {
                         borderRadius: BorderRadius.circular(100)))),
                 onPressed: () {},
                 child: Text(
-                  'GİRİŞ YAPs',
+                  'GİRİŞ YAP',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
                 )),
             Spacer(
