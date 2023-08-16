@@ -1,11 +1,19 @@
 {
     "login": {
       
-            "email":"e-mail",
+            "email":"E-mail",
+            "mobileNum":"Mobile Number",
+            "fullName":"Full Name",
+            "byRegister":"By registering, you accept our",
+            "termsOf":"Terms of Conditions",
+            "pickPhone":"Enter a Phone Number",
+            "alreadyHaveAc":"Do you have an account?",
             "password":"Password",
-            "login":"LOG IN",
-            "signUp":"SIGN UP",
-            "forgotPass":"Forgot Password"
+            "login":"Login",
+            "register":"Register",
+            "orLogin":"Or Login with",
+            "dontHaveAc":"Don't have an account",
+            "forgotPass":"Forgot Your Password?"
 
         
     }

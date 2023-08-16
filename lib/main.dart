@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
         title: 'Wildpoly',
         theme: ThemeData(),
         home: DefaultTextStyle(
-            style: Constants.defaultTextStyle(), child: const StartPage()),
+            style: Constants.defaultTextStyle, child: const StartPage()),
       ),
     );
   }

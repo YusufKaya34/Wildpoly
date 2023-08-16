@@ -2,7 +2,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:wildpoly/constants/constants.dart';
-import 'package:wildpoly/view/home.dart';
+import 'package:wildpoly/constants/locale_keys.g.dart';
+import 'package:wildpoly/constants/string_extensions.dart';
+
+import 'package:wildpoly/view/sign_up_verify.dart';
 
 class StartPage extends StatefulWidget {
   const StartPage({super.key});
@@ -56,22 +59,14 @@ class _StartPageState extends State<StartPage> {
               children: [
                 Constants.sizedBoxWithMidHeight(context),
                 TextFormField(
-                  decoration: InputDecoration(
-                      isDense: true,
-                      contentPadding: const EdgeInsets.all(14),
-                      hintText: 'Enter a Phone Number',
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: BorderSide(
-                              color: Constants.orangeColor, width: 2)),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: const BorderSide())),
-                ),
+                    keyboardType: TextInputType.phone,
+                    decoration: Constants.startInputDecoration(
+                        LocaleKeys.login_mobileNum.locale)),
                 Constants.sizedBoxWithTinyHeight(context),
                 TextFormField(
                   obscureText: !_passwordVisible,
                   decoration: InputDecoration(
+                      hintStyle: TextStyle(color: Colors.grey.shade800),
                       suffixIcon: IconButton(
                         icon: Icon(
                             _passwordVisible
@@ -87,7 +82,7 @@ class _StartPageState extends State<StartPage> {
                       ),
                       isDense: true,
                       contentPadding: const EdgeInsets.all(14),
-                      hintText: 'Password',
+                      hintText: LocaleKeys.login_password.locale,
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                           borderSide: BorderSide(
@@ -98,18 +93,31 @@ class _StartPageState extends State<StartPage> {
                 ),
               ],
             )),
-            TextButton(
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      'Forget Your Password?',
-                      style:
-                          TextStyle(color: Constants.orangeColor, fontSize: 15),
-                    ),
-                  ],
-                )),
+            Constants.sizedBoxWithVeryTinyHeight(context),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                RichText(
+                  text: TextSpan(
+                      style: DefaultTextStyle.of(context).style,
+                      children: [
+                        TextSpan(
+                            text: LocaleKeys.login_forgotPass.locale,
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () =>
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) =>
+                                        const SignUpVerifyPage(),
+                                  )),
+                            style: TextStyle(
+                              color: Constants.orangeColor,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                            ))
+                      ]),
+                ),
+              ],
+            ),
             Constants.sizedBoxWithTinyHeight(context),
             ElevatedButton(
                 style: ButtonStyle(
@@ -119,13 +127,13 @@ class _StartPageState extends State<StartPage> {
                     shape: MaterialStateProperty.all(RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)))),
                 onPressed: () {},
-                child: const Text(
-                  'Login',
+                child: Text(
+                  LocaleKeys.login_login.locale,
                   style: TextStyle(fontSize: 23, fontWeight: FontWeight.normal),
                 )),
             Constants.sizedBoxWithMidHeight(context),
-            const Text(
-              'Or Login with',
+            Text(
+              LocaleKeys.login_orLogin.locale,
               style: TextStyle(fontSize: 16),
             ),
             Constants.sizedBoxWithTinyHeight(context),
@@ -161,16 +169,16 @@ class _StartPageState extends State<StartPage> {
                   style: DefaultTextStyle.of(context).style,
                   children: [
                     TextSpan(
-                        text: "Don't have account? ",
-                        style: Constants.signInPageTextStyle()),
+                        text: "${LocaleKeys.login_dontHaveAc.locale} ",
+                        style: Constants.signInPageTextStyle),
                     TextSpan(
-                        text: "Sign up",
+                        text: LocaleKeys.login_register.locale,
                         recognizer: TapGestureRecognizer()
                           ..onTap = () =>
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const HomePage(),
+                                builder: (context) => const SignUpVerifyPage(),
                               )),
-                        style: Constants.signInPageTextStyleBold())
+                        style: Constants.signInPageTextStyleBold)
                   ]),
             ),
             Constants.sizedBoxWithTinyHeight(context)

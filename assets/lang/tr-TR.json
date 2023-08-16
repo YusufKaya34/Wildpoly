@@ -1,9 +1,17 @@
 {
     "login": {
-        "email":"e-posta",
+        "email":"E-posta",
+        "mobileNum":"Cep Telefonu",
+        "fullName":"Ad Soyad",
+        "byRegister":"Üye olmakla,",
+        "termsOf":"Kullanım Koşulları",
+        "pickPhone":"Bir Cep Telefonu girin",
+        "alreadyHaveAc":"Zaten bir hesabınız var mı?",
         "password":"Şifre",
-        "login":"GİRİŞ YAP",
-        "signUp":"KAYIT OL",
-        "forgotPass":"Şifremi unuttum"
+        "login":"Giriş Yap",
+        "register":"Kayıt ol",
+        "orLogin":"Veya",
+        "dontHaveAc":"Hesabınız yok mu?",
+        "forgotPass":"Şifreni mi unuttun?"
     }
 }

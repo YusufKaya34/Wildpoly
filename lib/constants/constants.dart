@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wildpoly/constants/locale_keys.g.dart';
+import 'package:wildpoly/constants/string_extensions.dart';
 
 class Constants {
   static const TR_LOCALE = Locale("tr", "TR");
@@ -11,31 +13,75 @@ class Constants {
     );
   }
 
+  static sizedBoxWithHighHeight(context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height / 10,
+    );
+  }
+
   static sizedBoxWithTinyHeight(context) {
     return SizedBox(
       height: MediaQuery.of(context).size.height / 45,
     );
   }
 
-  static TextStyle signInPageTextStyle() {
-    return TextStyle(
-        decoration: TextDecoration.none,
-        fontSize: 18,
-        fontWeight: FontWeight.normal,
-        color: Colors.grey.shade700,
-        fontFamily: 'Montserrat.ttf');
+  static sizedBoxWithVeryTinyHeight(context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height / 70,
+    );
   }
 
-  static TextStyle defaultTextStyle() {
-    return TextStyle(fontFamily: 'Montserrat.ttf');
+  static TextStyle signInPageTextStyle = TextStyle(
+      decoration: TextDecoration.none,
+      fontSize: 18,
+      fontWeight: FontWeight.normal,
+      color: Colors.grey.shade700,
+      fontFamily: 'Montserrat.ttf');
+
+  static TextStyle defaultTextStyle = TextStyle(fontFamily: 'Montserrat.ttf');
+
+  static TextStyle signInPageTextStyleBold = const TextStyle(
+      decoration: TextDecoration.none,
+      fontSize: 18,
+      fontWeight: FontWeight.w500,
+      color: Colors.orange,
+      fontFamily: 'Montserrat.ttf');
+  static InputDecoration signUpVerifyInputDecoration(
+    String hintText,
+  ) {
+    return InputDecoration(
+      contentPadding: const EdgeInsets.all(14),
+      hintStyle: TextStyle(color: Colors.grey.shade800),
+      hintText: hintText,
+      hoverColor: Constants.orangeColor,
+      focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide: BorderSide(color: Constants.orangeColor, width: 2)),
+      disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide: BorderSide(color: Constants.orangeColor, width: 2)),
+      enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide: BorderSide(color: Constants.orangeColor, width: 2)),
+      border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide: BorderSide(color: Constants.orangeColor, width: 2)),
+    );
   }
 
-  static TextStyle signInPageTextStyleBold() {
-    return const TextStyle(
-        decoration: TextDecoration.none,
-        fontSize: 18,
-        fontWeight: FontWeight.w500,
-        color: Colors.orange,
-        fontFamily: 'Montserrat.ttf');
+  static InputDecoration startInputDecoration(
+    String hintText,
+  ) {
+    return InputDecoration(
+        hintStyle: TextStyle(color: Colors.grey.shade800),
+        isDense: true,
+        contentPadding: const EdgeInsets.all(14),
+        hintText: hintText,
+        focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: BorderSide(color: Constants.orangeColor, width: 2)),
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide()));
   }
 }
