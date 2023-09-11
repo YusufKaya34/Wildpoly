@@ -36,19 +36,19 @@ class _SignUpVerifyPageState extends State<SignUpVerifyPage> {
                     keyboardType: TextInputType.phone,
                     decoration: Constants.signUpVerifyInputDecoration(
                       LocaleKeys.login_mobileNum.locale,
-                    )),
+                    ),),
                 Constants.sizedBoxWithTinyHeight(context),
                 TextFormField(
                     decoration: Constants.signUpVerifyInputDecoration(
                   LocaleKeys.login_fullName.locale,
-                )),
+                ),),
                 Constants.sizedBoxWithTinyHeight(context),
                 TextFormField(
                     decoration: Constants.signUpVerifyInputDecoration(
                   LocaleKeys.login_email.locale,
-                )),
+                ),),
               ],
-            )),
+            ),),
             Constants.sizedBoxWithMidHeight(context),
             RichText(
               text: TextSpan(
@@ -56,48 +56,47 @@ class _SignUpVerifyPageState extends State<SignUpVerifyPage> {
                   children: [
                     TextSpan(
                         text: LocaleKeys.login_byRegister.locale,
-                        style: Constants.signInPageTextStyle),
+                        style: Constants.signInPageTextStyle,),
                     TextSpan(
                         text: ' ${LocaleKeys.login_termsOf.locale}',
                         recognizer: TapGestureRecognizer()
                           ..onTap = () =>
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => const StartPage(),
-                              )),
-                        style: Constants.signInPageTextStyleBold),
+                              ),),
+                        style: Constants.signInPageTextStyleBold,),
                     TextSpan(
                         text: LocaleKeys.login_byRegister.locale.length > 15
                             ? ''
                             : ' hükümlerini kabul etmektesiniz.',
-                        style: Constants.signInPageTextStyle),
-                  ]),
+                        style: Constants.signInPageTextStyle,),
+                  ],),
             ),
             Constants.sizedBoxWithMidHeight(context),
             ElevatedButton(
               onPressed: () {},
-              child: Text(
-                LocaleKeys.login_register.locale,
-                style: TextStyle(fontSize: 20),
-              ),
               style: ButtonStyle(
                   backgroundColor:
                       MaterialStatePropertyAll(Constants.orangeColor),
                   shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20))),
+                      borderRadius: BorderRadius.circular(20),),),
                   minimumSize: MaterialStatePropertyAll(Size(
                     MediaQuery.of(context).size.width,
                     50,
-                  ))),
+                  ),),),
+              child: Text(
+                LocaleKeys.login_register.locale,
+                style: const TextStyle(fontSize: 20),
+              ),
             ),
             Constants.sizedBoxWithMidHeight(context),
             Text(
               LocaleKeys.login_orLogin.locale,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
             Constants.sizedBoxWithMidHeight(context),
             Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                mainAxisSize: MainAxisSize.max,
                 children: [
                   IconButton(
                       onPressed: () {},
@@ -105,39 +104,39 @@ class _SignUpVerifyPageState extends State<SignUpVerifyPage> {
                         FontAwesomeIcons.squareFacebook,
                         color: Constants.orangeColor,
                         size: 48,
-                      )),
+                      ),),
                   IconButton(
                       onPressed: () {},
                       icon: Icon(
                         FontAwesomeIcons.squareTwitter,
                         color: Constants.orangeColor,
                         size: 48,
-                      )),
+                      ),),
                   IconButton(
                       onPressed: () {},
                       icon: Icon(
                         FontAwesomeIcons.squareInstagram,
                         color: Constants.orangeColor,
                         size: 48,
-                      )),
-                ]),
+                      ),),
+                ],),
             Constants.sizedBoxWithHighHeight(context),
             RichText(
               text: TextSpan(
                   style: DefaultTextStyle.of(context).style,
                   children: [
                     TextSpan(
-                        text: "${LocaleKeys.login_alreadyHaveAc.locale} ",
-                        style: Constants.signInPageTextStyle),
+                        text: '${LocaleKeys.login_alreadyHaveAc.locale} ',
+                        style: Constants.signInPageTextStyle,),
                     TextSpan(
                         text: LocaleKeys.login_login.locale,
                         recognizer: TapGestureRecognizer()
                           ..onTap = () =>
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => const StartPage(),
-                              )),
-                        style: Constants.signInPageTextStyleBold)
-                  ]),
+                              ),),
+                        style: Constants.signInPageTextStyleBold,)
+                  ],),
             ),
           ],
         ),

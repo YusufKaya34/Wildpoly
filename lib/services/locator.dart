@@ -10,9 +10,9 @@ import 'package:wildpoly/services/firestore_db_service.dart';
 
 GetIt locator = GetIt.instance;
 void setupLocator() {
-  locator.registerLazySingleton(() => FirebaseAuthService());
-  locator.registerLazySingleton(() => FakeAuthenticationService());
-  locator.registerLazySingleton(() => UserRepository());
-  locator.registerLazySingleton(() => FirestoreDBService());
+  locator..registerLazySingleton(FirebaseAuthService.new)
+  ..registerLazySingleton(FakeAuthenticationService.new)
+  ..registerLazySingleton(UserRepository.new)
+  ..registerLazySingleton(FirestoreDBService.new);
 
 }

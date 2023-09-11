@@ -10,6 +10,10 @@ import 'package:wildpoly/services/locator.dart';
 enum ViewState { idle, busy }
 
 class UserModel with ChangeNotifier implements AuthBase {
+
+  UserModel() {
+    currentUser();
+  }
   ViewState _state = ViewState.idle;
   final UserRepository _userRepository = locator<UserRepository>();
   MyUser? _user;
@@ -26,10 +30,6 @@ class UserModel with ChangeNotifier implements AuthBase {
   set state(ViewState value) {
     _state = value;
     notifyListeners();
-  }
-
-  UserModel() {
-    currentUser();
   }
 
   @override
@@ -51,7 +51,7 @@ class UserModel with ChangeNotifier implements AuthBase {
   }
 
   Future<List<MyUser>> getAllUser() async {
-    var tumKullaniciListesi = await _userRepository.getAllUser();
+    final tumKullaniciListesi = await _userRepository.getAllUser();
     return tumKullaniciListesi;
   }
 
@@ -60,7 +60,7 @@ class UserModel with ChangeNotifier implements AuthBase {
     try {
       print('çalıştı ');
       state = ViewState.busy;
-      bool sonuc = await _userRepository.signOut();
+      final sonuc = await _userRepository.signOut();
       _user = null;
       return sonuc;
     } catch (e) {
@@ -131,16 +131,16 @@ class UserModel with ChangeNotifier implements AuthBase {
     return sonuc;
   }
 
-  Future createUserName(String userID, String yeniUserName) async {
+  Future<dynamic> createUserName(String userID, String yeniUserName) async {
     state = ViewState.busy;
-    var sonuc = await _userRepository.createUserName(userID, yeniUserName);
+    final sonuc = await _userRepository.createUserName(userID, yeniUserName);
     state = ViewState.idle;
     return sonuc;
   }
 
   Future<bool> createName(String userID, String yeniName) async {
     state = ViewState.busy;
-    var sonuc = await _userRepository.createName(userID, yeniName);
+    final sonuc = await _userRepository.createName(userID, yeniName);
     state = ViewState.idle;
     return sonuc;
   }
@@ -148,9 +148,9 @@ class UserModel with ChangeNotifier implements AuthBase {
 
 
   @override
-  Future sendPasswordResetEmail(String email) async {
+  Future<dynamic> sendPasswordResetEmail(String email) async {
     state = ViewState.busy;
-    var sonuc = await _userRepository.sendPasswordResetEmail(email);
+    final sonuc = await _userRepository.sendPasswordResetEmail(email);
     state = ViewState.idle;
     return sonuc;
   }

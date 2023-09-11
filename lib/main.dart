@@ -13,7 +13,7 @@ import 'package:wildpoly/viewmodel/user_model.dart';
 Future<void> main() async {
   setupLocator();
   WidgetsFlutterBinding.ensureInitialized();
-  OneSignalApi.setupOneSignal();
+  await OneSignalApi.setupOneSignal();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
@@ -21,10 +21,10 @@ Future<void> main() async {
     DeviceOrientation.portraitUp,
   ]);
   runApp(EasyLocalization(
-      fallbackLocale: Locale('tr', 'TR'),
+      fallbackLocale: const Locale('tr', 'TR'),
       supportedLocales: const [Constants.TR_LOCALE],
       path: Constants.LANG_PATH,
-      child: const MyApp()));
+      child: const MyApp(),),);
 }
 
 class MyApp extends StatelessWidget {
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
         title: 'Wildpoly',
         theme: ThemeData(),
         home: DefaultTextStyle(
-            style: Constants.defaultTextStyle, child: const StartPage()),
+            style: Constants.defaultTextStyle, child: const StartPage(),),
       ),
     );
   }

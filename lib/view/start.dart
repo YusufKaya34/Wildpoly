@@ -23,7 +23,6 @@ class _StartPageState extends State<StartPage> {
       body: Padding(
         padding: const EdgeInsets.only(left: 25, right: 25),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Spacer(),
             Center(
@@ -35,14 +34,14 @@ class _StartPageState extends State<StartPage> {
                     style: TextStyle(
                         color: Constants.orangeColor,
                         fontSize: 60,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.bold,),
                   ),
                   Text(
                     'ildpoly',
                     style: TextStyle(
                         color: Constants.orangeColor,
                         fontSize: 36,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.bold,),
                   ),
                 ],
               ),
@@ -61,7 +60,7 @@ class _StartPageState extends State<StartPage> {
                 TextFormField(
                     keyboardType: TextInputType.phone,
                     decoration: Constants.startInputDecoration(
-                        LocaleKeys.login_mobileNum.locale)),
+                        LocaleKeys.login_mobileNum.locale,),),
                 Constants.sizedBoxWithTinyHeight(context),
                 TextFormField(
                   obscureText: !_passwordVisible,
@@ -73,7 +72,7 @@ class _StartPageState extends State<StartPage> {
                                 ? FontAwesomeIcons.eye
                                 : FontAwesomeIcons.solidEyeSlash,
                             size: 20,
-                            color: Constants.orangeColor),
+                            color: Constants.orangeColor,),
                         onPressed: () {
                           setState(() {
                             _passwordVisible = !_passwordVisible;
@@ -86,13 +85,12 @@ class _StartPageState extends State<StartPage> {
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                           borderSide: BorderSide(
-                              color: Constants.orangeColor, width: 2)),
+                              color: Constants.orangeColor, width: 2,),),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: BorderSide())),
+                          borderRadius: BorderRadius.circular(20),),),
                 ),
               ],
-            )),
+            ),),
             Constants.sizedBoxWithVeryTinyHeight(context),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -108,13 +106,13 @@ class _StartPageState extends State<StartPage> {
                                   Navigator.of(context).push(MaterialPageRoute(
                                     builder: (context) =>
                                         const SignUpVerifyPage(),
-                                  )),
+                                  ),),
                             style: TextStyle(
                               color: Constants.orangeColor,
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
-                            ))
-                      ]),
+                            ),)
+                      ],),
                 ),
               ],
             ),
@@ -125,21 +123,20 @@ class _StartPageState extends State<StartPage> {
                     backgroundColor:
                         MaterialStateProperty.all(Constants.orangeColor),
                     shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)))),
+                        borderRadius: BorderRadius.circular(20),),),),
                 onPressed: () {},
                 child: Text(
                   LocaleKeys.login_login.locale,
-                  style: TextStyle(fontSize: 23, fontWeight: FontWeight.normal),
-                )),
+                  style: const TextStyle(fontSize: 23, fontWeight: FontWeight.normal),
+                ),),
             Constants.sizedBoxWithMidHeight(context),
             Text(
               LocaleKeys.login_orLogin.locale,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
             Constants.sizedBoxWithTinyHeight(context),
             Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                mainAxisSize: MainAxisSize.max,
                 children: [
                   IconButton(
                       onPressed: () {},
@@ -147,39 +144,39 @@ class _StartPageState extends State<StartPage> {
                         FontAwesomeIcons.squareFacebook,
                         color: Constants.orangeColor,
                         size: 48,
-                      )),
+                      ),),
                   IconButton(
                       onPressed: () {},
                       icon: Icon(
                         FontAwesomeIcons.squareTwitter,
                         color: Constants.orangeColor,
                         size: 48,
-                      )),
+                      ),),
                   IconButton(
                       onPressed: () {},
                       icon: Icon(
                         FontAwesomeIcons.squareInstagram,
                         color: Constants.orangeColor,
                         size: 48,
-                      )),
-                ]),
-            Spacer(),
+                      ),),
+                ],),
+            const Spacer(),
             RichText(
               text: TextSpan(
                   style: DefaultTextStyle.of(context).style,
                   children: [
                     TextSpan(
-                        text: "${LocaleKeys.login_dontHaveAc.locale} ",
-                        style: Constants.signInPageTextStyle),
+                        text: '${LocaleKeys.login_dontHaveAc.locale} ',
+                        style: Constants.signInPageTextStyle,),
                     TextSpan(
                         text: LocaleKeys.login_register.locale,
                         recognizer: TapGestureRecognizer()
                           ..onTap = () =>
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => const SignUpVerifyPage(),
-                              )),
-                        style: Constants.signInPageTextStyleBold)
-                  ]),
+                              ),),
+                        style: Constants.signInPageTextStyleBold,)
+                  ],),
             ),
             Constants.sizedBoxWithTinyHeight(context)
           ],

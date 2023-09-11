@@ -12,10 +12,10 @@ class FirebaseAuthService implements AuthBase {
   @override
   Future<MyUser?> currentUser() async {
     try {
-      User? user = _firebaseAuth.currentUser;
+      final user = _firebaseAuth.currentUser;
       return _userFromFirebase(user);
     } catch (e) {
-      print("HATA CURRENT USER$e");
+      print('HATA CURRENT USER$e');
       return null;
     }
   }
@@ -49,11 +49,11 @@ class FirebaseAuthService implements AuthBase {
   @override
   Future<MyUser?> signInEmailAndPassword(String email, String password) async {
     try {
-      UserCredential sonuc = await _firebaseAuth.signInWithEmailAndPassword(
-          email: email, password: password);
-      return _userFromFirebase(sonuc.user!);
+      final sonuc = await _firebaseAuth.signInWithEmailAndPassword(
+          email: email, password: password,);
+      return _userFromFirebase(sonuc.user);
     } catch (e) {
-      print("SİGN İN EMAİL AND PASSWORD HATA:$e");
+      print('SİGN İN EMAİL AND PASSWORD HATA:$e');
       return null;
     }
   }
@@ -64,22 +64,22 @@ class FirebaseAuthService implements AuthBase {
     String password,
   ) async {
     try {
-      UserCredential sonuc = await _firebaseAuth.createUserWithEmailAndPassword(
-          email: email, password: password);
+      final sonuc = await _firebaseAuth.createUserWithEmailAndPassword(
+          email: email, password: password,);
       return _userFromFirebase(sonuc.user);
     } catch (e) {
-      print("SİGN UP HATA:$e");
+      print('SİGN UP HATA:$e');
       return null;
     }
   }
 
   @override
-  Future sendPasswordResetEmail(String email) async {
+  Future<dynamic> sendPasswordResetEmail(String email) async {
     try {
       await _firebaseAuth.sendPasswordResetEmail(email: email);
       return true;
     } catch (e) {
-      print("PASSWORD RESET ERROR:$e");
+      print('PASSWORD RESET ERROR:$e');
       return false;
     }
   }

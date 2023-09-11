@@ -25,11 +25,11 @@ class UserRepository implements AuthBase {
   @override
   Future<MyUser?> currentUser() async {
     if (appMode == AppMode.DEBUG) {
-      return await _fakeAuthenticationService.currentUser();
+      return  _fakeAuthenticationService.currentUser();
     } else {
-      MyUser? _user = await _firebaseAuthService.currentUser();
+      final _user = await _firebaseAuthService.currentUser();
       if (_user != null) {
-        return await _firestoreDBService.readUser(_user.userID!);
+        return  _firestoreDBService.readUser(_user.userID!);
       }
     }
     return null;
@@ -39,9 +39,9 @@ class UserRepository implements AuthBase {
   @override
   Future<bool> signOut() async {
     if (appMode == AppMode.DEBUG) {
-      return await _fakeAuthenticationService.signOut();
+      return  _fakeAuthenticationService.signOut();
     } else {
-      return await _firebaseAuthService.signOut();
+      return  _firebaseAuthService.signOut();
     }
   }
 
@@ -49,10 +49,10 @@ class UserRepository implements AuthBase {
   @override
   Future<MyUser?> signInEmailAndPassword(String email, String password) async {
     if (appMode == AppMode.DEBUG) {
-      return await _fakeAuthenticationService.signInEmailAndPassword(
-          email, password);
+      return  _fakeAuthenticationService.signInEmailAndPassword(
+          email, password,);
     } else {
-      return await _firebaseAuthService.signInEmailAndPassword(email, password);
+      return  _firebaseAuthService.signInEmailAndPassword(email, password);
     }
   }
 
@@ -62,17 +62,17 @@ class UserRepository implements AuthBase {
     String password,
   ) async {
     if (appMode == AppMode.DEBUG) {
-      return await _fakeAuthenticationService.signUp(
+      return  _fakeAuthenticationService.signUp(
         email,
         password,
       );
     } else {
-      MyUser? myUser = await _firebaseAuthService.signUp(
+      final myUser = await _firebaseAuthService.signUp(
         email,
         password,
       );
       print('${myUser!.userID}');
-      bool sonuc = await _firestoreDBService.saveUser(myUser);
+      final sonuc = await _firestoreDBService.saveUser(myUser);
 
       if (sonuc) {
         return myUser;
@@ -82,11 +82,11 @@ class UserRepository implements AuthBase {
     }
   }
 
-  Future createUserName(String userID, String yeniUserName) async {
+  Future<dynamic> createUserName(String userID, String yeniUserName) async {
     if (appMode == AppMode.DEBUG) {
       return false;
     } else {
-      return await _firestoreDBService.createUserName(userID, yeniUserName);
+      return  _firestoreDBService.createUserName(userID, yeniUserName);
       
     }
   }
@@ -95,7 +95,7 @@ class UserRepository implements AuthBase {
     if (appMode == AppMode.DEBUG) {
       return false;
     } else {
-      return await _firestoreDBService.createName(userID, yeniName);
+      return  _firestoreDBService.createName(userID, yeniName);
     }
   }
 
@@ -105,7 +105,7 @@ class UserRepository implements AuthBase {
     if (appMode == AppMode.DEBUG) {
       return [];
     } else {
-      var tumKullaniciListesi = await _firestoreDBService.getAllUser();
+      final tumKullaniciListesi = await _firestoreDBService.getAllUser();
       return tumKullaniciListesi;
     }
   }
@@ -115,11 +115,11 @@ class UserRepository implements AuthBase {
 
   
   @override
- Future sendPasswordResetEmail(String email)async {
+ Future<dynamic> sendPasswordResetEmail(String email)async {
      if (appMode == AppMode.DEBUG) {
       return true;
     } else {
-      return await _firebaseAuthService.sendPasswordResetEmail(email);
+      return  _firebaseAuthService.sendPasswordResetEmail(email);
     }
   }
 }

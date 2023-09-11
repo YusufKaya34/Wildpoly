@@ -8,5 +8,5 @@ abstract class AuthBase {
   Future<bool> signOut();
   Future<MyUser?> signInEmailAndPassword(String email,String password);
   Future<MyUser?> signUp(String email,String password,);
-  Future sendPasswordResetEmail(String email);
+  Future<dynamic> sendPasswordResetEmail(String email);
 }
