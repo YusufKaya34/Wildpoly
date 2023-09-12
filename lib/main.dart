@@ -6,25 +6,28 @@ import 'package:provider/provider.dart';
 import 'package:wildpoly/constants/constants.dart';
 import 'package:wildpoly/firebase_options.dart';
 import 'package:wildpoly/services/locator.dart';
-import 'package:wildpoly/services/one_signal_api.dart';
 import 'package:wildpoly/view/start.dart';
 import 'package:wildpoly/viewmodel/user_model.dart';
 
 Future<void> main() async {
   setupLocator();
   WidgetsFlutterBinding.ensureInitialized();
-  await OneSignalApi.setupOneSignal();
+  //await OneSignalApi.setupOneSignal();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  WidgetsFlutterBinding.ensureInitialized();
+  // WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
-  runApp(EasyLocalization(
+  runApp(
+    EasyLocalization(
       fallbackLocale: const Locale('tr', 'TR'),
       supportedLocales: const [Constants.TR_LOCALE],
       path: Constants.LANG_PATH,
-      child: const MyApp(),),);
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -40,9 +43,11 @@ class MyApp extends StatelessWidget {
         locale: context.locale,
         debugShowCheckedModeBanner: false,
         title: 'Wildpoly',
-        theme: ThemeData(),
+        theme: ThemeData.fallback(),
         home: DefaultTextStyle(
-            style: Constants.defaultTextStyle, child: const StartPage(),),
+          style: Constants.defaultTextStyle,
+          child: const StartPage(),
+        ),
       ),
     );
   }

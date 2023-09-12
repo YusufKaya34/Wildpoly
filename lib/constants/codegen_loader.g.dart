@@ -42,7 +42,7 @@ class CodegenLoader extends AssetLoader {
       "alreadyHaveAc": "Zaten bir hesabınız var mı?",
       "password": "Şifre",
       "login": "Giriş Yap",
-      "register": "Kayıt ol",
+      "register": "Kayıt Ol",
       "orLogin": "Veya",
       "dontHaveAc": "Hesabınız yok mu?",
       "forgotPass": "Şifreni mi unuttun?"

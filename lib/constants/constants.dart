@@ -4,7 +4,7 @@ class Constants {
   static const TR_LOCALE = Locale('tr', 'TR');
   static const EN_LOCALE = Locale('en', 'US');
   static const LANG_PATH = 'assets/lang';
-  static Color orangeColor = Colors.orange.shade600;
+  static Color orangeColor = const Color(0xff240046);
   static SizedBox sizedBoxWithMidHeight(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.height / 28,
@@ -30,20 +30,23 @@ class Constants {
   }
 
   static TextStyle signInPageTextStyle = TextStyle(
-      decoration: TextDecoration.none,
-      fontSize: 18,
-      fontWeight: FontWeight.normal,
-      color: Colors.grey.shade700,
-      fontFamily: 'Montserrat.ttf',);
+    decoration: TextDecoration.none,
+    fontSize: 17,
+    fontWeight: FontWeight.normal,
+    color: Colors.grey.shade700,
+    fontFamily: 'Montserrat.ttf',
+  );
 
-  static TextStyle defaultTextStyle = const TextStyle(fontFamily: 'Montserrat.ttf');
+  static TextStyle defaultTextStyle =
+      const TextStyle(fontFamily: 'Montserrat.ttf', fontSize: 17);
 
-  static TextStyle signInPageTextStyleBold = const TextStyle(
-      decoration: TextDecoration.none,
-      fontSize: 18,
-      fontWeight: FontWeight.w500,
-      color: Colors.orange,
-      fontFamily: 'Montserrat.ttf',);
+  static TextStyle signInPageTextStyleBold = TextStyle(
+    decoration: TextDecoration.none,
+    fontSize: 17,
+    fontWeight: FontWeight.w500,
+    color: orangeColor,
+    fontFamily: 'Montserrat.ttf',
+  );
   static InputDecoration signUpVerifyInputDecoration(
     String hintText,
   ) {
@@ -53,17 +56,13 @@ class Constants {
       hintText: hintText,
       hoverColor: Constants.orangeColor,
       focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-          borderSide: BorderSide(color: Constants.orangeColor, width: 2),),
-      disabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-          borderSide: BorderSide(color: Constants.orangeColor, width: 2),),
-      enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-          borderSide: BorderSide(color: Constants.orangeColor, width: 2),),
+        borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide(color: Constants.orangeColor, width: 2),
+      ),
       border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-          borderSide: BorderSide(color: Constants.orangeColor, width: 2),),
+        borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide(color: Constants.orangeColor, width: 2),
+      ),
     );
   }
 
@@ -71,14 +70,17 @@ class Constants {
     String hintText,
   ) {
     return InputDecoration(
-        hintStyle: TextStyle(color: Colors.grey.shade800),
-        isDense: true,
-        contentPadding: const EdgeInsets.all(14),
-        hintText: hintText,
-        focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-            borderSide: BorderSide(color: Constants.orangeColor, width: 2),),
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),),);
+      hintStyle: TextStyle(color: Colors.grey.shade800),
+      isDense: true,
+      contentPadding: const EdgeInsets.all(14),
+      hintText: hintText,
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide(color: Constants.orangeColor, width: 2),
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+    );
   }
 }
